@@ -1,0 +1,19 @@
+model:
+  name: "s3://models/sentimental/v2"
+  num_labels: 3
+  max_length: 256
+
+data:
+  path: "data/clean/sentiment_v2.csv"
+  test_size: 0.2
+  sample_size: 10000
+
+train:
+  seed: 42
+  epochs: 5
+  batch_size: 32
+  learning_rate: 0.00002
+  warmup_ratio: 0.1
+
+output:
+  models_dir: "models/sentimental"

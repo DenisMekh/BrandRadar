@@ -1,0 +1,19 @@
+model:
+  name: "s3://models/relevance/v2"
+  num_labels: 2
+  max_length: 256
+  use_keywords: true
+
+data:
+  path: "data/clean/relevance_v2.csv"
+  test_size: 0.2
+
+train:
+  seed: 42
+  epochs: 5
+  batch_size: 32
+  learning_rate: 0.00002
+  warmup_ratio: 0.1
+
+output:
+  models_dir: "models/relevance"

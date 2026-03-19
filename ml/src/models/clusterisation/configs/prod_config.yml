@@ -1,0 +1,2 @@
+model:
+  name: "s3://models/clusterer/v1"

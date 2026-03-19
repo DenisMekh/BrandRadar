@@ -1,0 +1,38 @@
+model:
+  name: "s3://models/clusterer/v1"
+  max_length: 256
+  batch_size: 32
+  normalize_embeddings: true
+  device: null
+  show_progress_bar: false
+
+preprocess:
+  lowercase: true
+  remove_punctuation: true
+  remove_stopwords: true
+  min_length: 3
+
+  stopwords_path: "stopwords_ru_domain.txt"
+  remove_tokens_path: "remove_tokens.txt"
+
+umap:
+  use_umap: true
+  n_neighbors: 12
+  n_components: 5
+  min_dist: 0.0
+  metric: "cosine"
+
+tfidf:
+  max_features: 3000
+  ngram_range: [1, 2]
+  min_df: 1
+  max_df: 0.95
+  topic_keywords_top_n: 6
+
+hdbscan:
+  min_cluster_size: 3
+  min_samples: 2
+  cluster_selection_epsilon: 0.0
+
+save:
+  path: "models/clusterer"

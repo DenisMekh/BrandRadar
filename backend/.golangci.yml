@@ -1,0 +1,116 @@
+version: "2"
+
+
+run:
+  timeout: 5m
+  relative-path-mode: gomod
+  issues-exit-code: 1
+  tests: true
+  modules-download-mode: readonly
+
+output:
+  formats:
+    text:
+      print-linter-name: true
+      print-issued-lines: true
+      colors: true
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
+  uniq-by-line: true
+
+linters:
+  default: standard
+  enable:
+    - errcheck
+    - staticcheck
+    - govet
+    - gocritic
+    - revive
+    - gosec
+    - depguard
+    - bodyclose
+    - asciicheck
+    - cyclop
+    - ineffassign
+    - unparam
+    - errorlint
+    - errname
+    - forbidigo
+    - contextcheck
+    - containedctx
+  disable:
+    - gocyclo
+    - lll
+    - dupl
+    - unused
+
+  exclusions:
+    generated: strict
+    rules:
+      - linters:
+          - bodyclose
+        text: "response body must be closed"
+      - path: _test\.go
+        linters:
+          - gci
+          - cyclop
+          - dupl
+          - gosec
+          - errcheck
+      - path: mocks/
+        linters:
+          - gci
+          - cyclop
+          - dupl
+          - gosec
+          - errcheck
+
+  settings:
+
+    gosec:
+      config:
+        global:
+          audit: true
+          show-ignored: true
+        severity: "medium"
+        confidence: "medium"
+
+    cyclop:
+      max-complexity: 20
+
+    depguard:
+      rules:
+        main:
+          deny:
+            - pkg: io/ioutil
+              desc: "Using outdated io/ioutil is forbidden (change to os/io)"
+
+    revive:
+      severity: warning
+
+    forbidigo:
+      exclude-godoc-examples: true
+      analyze-types: true
+      forbid:
+        - pattern: '^fmt\.Print.*$'
+          msg: "Directly using fmt.Print* for logger"
+        - pattern: '^time\.Sleep$'
+          msg: "Using time.Sleep is forbidden in production (use timers/context)"
+        - pattern: '^http\.DefaultClient$'
+          msg: "Using http.DefaultClient (no timeouts) is bad; use *http.Client with timeouts"
+
+formatters:
+  enable:
+
+    - gci
+  settings:
+    gofumpt:
+      extra-rules: true
+    gci:
+      sections:
+        - Standard
+        - Default
+        - Prefix(prod-pobeda-2026/)
+      no-inline-comments: false

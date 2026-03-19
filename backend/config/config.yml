@@ -1,0 +1,39 @@
+app:
+  env: local        # local | dev | prod
+  port: 8080
+  log_level: debug  # debug | info | warn | error
+  trusted_proxies: [] # e.g. ["127.0.0.1", "10.0.0.0/8"], empty = trust no proxy headers
+  rate_limit:
+    rps: 500
+    burst: 1000
+
+postgres:
+  host: localhost
+  port: 5432
+  user: postgres
+  password: postgres
+  database: app_db
+  ssl_mode: disable
+  max_conns: 20
+  min_conns: 5
+
+redis:
+  host: localhost
+  port: 6379
+  password: ""
+  db: 0
+worker:
+  clustering: 3
+  analytics: 1
+  anomalies: 2
+
+crawler:
+  timeout: 30
+  posts_limit: 200
+
+ml_sentiment:
+  url: http://localhost:8000  # ML service URL
+
+telegram:
+  bot_token: ""  # set via TELEGRAM_BOT_TOKEN env var
+  chat_id: ""    # set via TELEGRAM_CHAT_ID env var

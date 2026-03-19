@@ -1,0 +1,1961 @@
+{
+    "openapi": "3.0.0",
+    "x-origin": [
+        {
+            "url": "http://178.154.219.184/api/v1/swagger.json",
+            "format": "swagger",
+            "version": "2.0",
+            "converter": {
+                "url": "https://github.com/mermade/oas-kit",
+                "version": "7.0.8"
+            }
+        }
+    ],
+    "info": {
+        "description": "API системы мониторинга репутации брендов BrandRadar",
+        "title": "BrandRadar API",
+        "contact": {},
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/alerts/config": {
+            "post": {
+                "description": "Создаёт конфигурацию spike-алерта для бренда",
+                "tags": [
+                    "Alerts"
+                ],
+                "summary": "Создать конфиг алерта",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.CreateAlertConfigRequest"
+                            }
+                        }
+                    },
+                    "description": "Конфигурация алерта",
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.SuccessResponse"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.AlertConfigResponse"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/alerts/config/{id}": {
+            "get": {
+                "description": "Возвращает конфигурацию алерта по ID",
+                "tags": [
+                    "Alerts"
+                ],
+                "summary": "Получить конфиг алерта",
+                "parameters": [
+                    {
+                        "description": "UUID конфига",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.SuccessResponse"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.AlertConfigResponse"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "Обновляет параметры конфигурации алерта",
+                "tags": [
+                    "Alerts"
+                ],
+                "summary": "Обновить конфиг алерта",
+                "parameters": [
+                    {
+                        "description": "UUID конфига",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.UpdateAlertConfigRequest"
+                            }
+                        }
+                    },
+                    "description": "Обновляемые поля",
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.SuccessResponse"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.AlertConfigResponse"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Удаляет конфигурацию алерта",
+                "tags": [
+                    "Alerts"
+                ],
+                "summary": "Удалить конфиг алерта",
+                "parameters": [
+                    {
+                        "description": "UUID конфига",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/brands": {
+            "get": {
+                "description": "Возвращает список всех брендов с пагинацией",
+                "tags": [
+                    "Brands"
+                ],
+                "summary": "Список брендов",
+                "parameters": [
+                    {
+                        "description": "Лимит",
+                        "name": "limit",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "default": 20
+                        }
+                    },
+                    {
+                        "description": "Смещение",
+                        "name": "offset",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "default": 0
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.PaginatedResponse"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "allOf": [
+                                                        {
+                                                            "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.PaginatedData"
+                                                        },
+                                                        {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "items": {
+                                                                    "type": "array",
+                                                                    "items": {
+                                                                        "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.BrandResponse"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Создаёт новый бренд с ключевыми словами",
+                "tags": [
+                    "Brands"
+                ],
+                "summary": "Создать бренд",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.CreateBrandRequest"
+                            }
+                        }
+                    },
+                    "description": "Данные бренда",
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.SuccessResponse"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.BrandResponse"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/brands/{id}": {
+            "get": {
+                "description": "Возвращает бренд по ID",
+                "tags": [
+                    "Brands"
+                ],
+                "summary": "Получить бренд",
+                "parameters": [
+                    {
+                        "description": "UUID бренда",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.SuccessResponse"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.BrandResponse"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "Обновляет данные бренда",
+                "tags": [
+                    "Brands"
+                ],
+                "summary": "Обновить бренд",
+                "parameters": [
+                    {
+                        "description": "UUID бренда",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.UpdateBrandRequest"
+                            }
+                        }
+                    },
+                    "description": "Обновляемые поля",
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.SuccessResponse"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.BrandResponse"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Удаляет бренд по ID",
+                "tags": [
+                    "Brands"
+                ],
+                "summary": "Удалить бренд",
+                "parameters": [
+                    {
+                        "description": "UUID бренда",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/brands/{id}/alerts": {
+            "get": {
+                "description": "Возвращает историю сработавших алертов для бренда",
+                "tags": [
+                    "Alerts"
+                ],
+                "summary": "История алертов",
+                "parameters": [
+                    {
+                        "description": "UUID бренда",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Лимит",
+                        "name": "limit",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "default": 20
+                        }
+                    },
+                    {
+                        "description": "Смещение",
+                        "name": "offset",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "default": 0
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.PaginatedResponse"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "allOf": [
+                                                        {
+                                                            "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.PaginatedData"
+                                                        },
+                                                        {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "items": {
+                                                                    "type": "array",
+                                                                    "items": {
+                                                                        "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.AlertResponse"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/brands/{id}/alerts/config": {
+            "get": {
+                "description": "Возвращает все конфигурации алертов для бренда",
+                "tags": [
+                    "Alerts"
+                ],
+                "summary": "Конфиги алертов по бренду",
+                "parameters": [
+                    {
+                        "description": "UUID бренда",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.SuccessResponse"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.AlertConfigResponse"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/events": {
+            "get": {
+                "description": "Возвращает системные события с фильтром по типу",
+                "tags": [
+                    "Events"
+                ],
+                "summary": "Список событий",
+                "parameters": [
+                    {
+                        "description": "Тип события",
+                        "name": "type",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Лимит",
+                        "name": "limit",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "default": 50
+                        }
+                    },
+                    {
+                        "description": "Смещение",
+                        "name": "offset",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "default": 0
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.PaginatedResponse"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "allOf": [
+                                                        {
+                                                            "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.PaginatedData"
+                                                        },
+                                                        {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "items": {
+                                                                    "type": "array",
+                                                                    "items": {
+                                                                        "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.EventResponse"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/health": {
+            "get": {
+                "description": "Возвращает статус приложения и его зависимостей",
+                "tags": [
+                    "Health"
+                ],
+                "summary": "Проверка здоровья",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.HealthResponse"
+                                }
+                            }
+                        }
+                    },
+                    "503": {
+                        "description": "Service Unavailable",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.HealthResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mentions": {
+            "get": {
+                "description": "Возвращает упоминания с фильтрацией и пагинацией",
+                "tags": [
+                    "Mentions"
+                ],
+                "summary": "Список упоминаний",
+                "parameters": [
+                    {
+                        "description": "UUID бренда",
+                        "name": "brand_id",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "UUID источника",
+                        "name": "source_id",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Статус (new, processing, processed, archived, discarded)",
+                        "name": "status",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "ML-метка (negative, positive, neutral)",
+                        "name": "label",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Релевантность",
+                        "name": "is_relevant",
+                        "in": "query",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "description": "Поиск по тексту",
+                        "name": "search",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Дата от (RFC3339)",
+                        "name": "date_from",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Дата до (RFC3339)",
+                        "name": "date_to",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Лимит",
+                        "name": "limit",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "default": 20
+                        }
+                    },
+                    {
+                        "description": "Смещение",
+                        "name": "offset",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "default": 0
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.PaginatedResponse"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "allOf": [
+                                                        {
+                                                            "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.PaginatedData"
+                                                        },
+                                                        {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "items": {
+                                                                    "type": "array",
+                                                                    "items": {
+                                                                        "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.MentionResponse"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mentions/{id}": {
+            "get": {
+                "description": "Возвращает упоминание с ML-полями по ID",
+                "tags": [
+                    "Mentions"
+                ],
+                "summary": "Получить упоминание",
+                "parameters": [
+                    {
+                        "description": "UUID упоминания",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.SuccessResponse"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.MentionResponse"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/sources": {
+            "get": {
+                "description": "Возвращает список источников с пагинацией",
+                "tags": [
+                    "Sources"
+                ],
+                "summary": "Список источников",
+                "parameters": [
+                    {
+                        "description": "Фильтр по UUID бренда",
+                        "name": "brand_id",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Лимит",
+                        "name": "limit",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "default": 20
+                        }
+                    },
+                    {
+                        "description": "Смещение",
+                        "name": "offset",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "default": 0
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.PaginatedResponse"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "allOf": [
+                                                        {
+                                                            "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.PaginatedData"
+                                                        },
+                                                        {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "items": {
+                                                                    "type": "array",
+                                                                    "items": {
+                                                                        "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.SourceResponse"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Создаёт новый источник данных (telegram, web, rss)",
+                "tags": [
+                    "Sources"
+                ],
+                "summary": "Создать источник",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.CreateSourceRequest"
+                            }
+                        }
+                    },
+                    "description": "Данные источника",
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.SuccessResponse"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.SourceResponse"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/sources/{id}": {
+            "get": {
+                "description": "Возвращает источник по ID",
+                "tags": [
+                    "Sources"
+                ],
+                "summary": "Получить источник",
+                "parameters": [
+                    {
+                        "description": "UUID источника",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.SuccessResponse"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.SourceResponse"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Удаляет источник по ID",
+                "tags": [
+                    "Sources"
+                ],
+                "summary": "Удалить источник",
+                "parameters": [
+                    {
+                        "description": "UUID источника",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/sources/{id}/toggle": {
+            "post": {
+                "description": "Переключает active/inactive статус источника",
+                "tags": [
+                    "Sources"
+                ],
+                "summary": "Переключить статус источника",
+                "parameters": [
+                    {
+                        "description": "UUID источника",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.SuccessResponse"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.SourceResponse"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080/api/v1"
+        },
+        {
+            "url": "https://localhost:8080/api/v1"
+        }
+    ],
+    "components": {
+        "schemas": {
+            "prod-pobeda-2026_internal_controller_http_v1_dto.AlertConfigResponse": {
+                "type": "object",
+                "properties": {
+                    "aggression": {
+                        "type": "number",
+                        "example": 0.5
+                    },
+                    "brand_id": {
+                        "type": "string",
+                        "example": "550e8400-e29b-41d4-a716-446655440000"
+                    },
+                    "cooldown_minutes": {
+                        "type": "integer",
+                        "example": 30
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "example": "2024-01-01T12:00:00Z"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "id": {
+                        "type": "string",
+                        "example": "550e8400-e29b-41d4-a716-446655440000"
+                    },
+                    "sentiment_filter": {
+                        "type": "string",
+                        "example": "negative"
+                    },
+                    "threshold": {
+                        "type": "integer",
+                        "example": 10
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "example": "2024-01-01T12:00:00Z"
+                    },
+                    "window_minutes": {
+                        "type": "integer",
+                        "example": 60
+                    }
+                }
+            },
+            "prod-pobeda-2026_internal_controller_http_v1_dto.AlertResponse": {
+                "type": "object",
+                "properties": {
+                    "brand_id": {
+                        "type": "string",
+                        "example": "550e8400-e29b-41d4-a716-446655440000"
+                    },
+                    "config_id": {
+                        "type": "string",
+                        "example": "550e8400-e29b-41d4-a716-446655440000"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "example": "2024-01-01T12:00:00Z"
+                    },
+                    "fired_at": {
+                        "type": "string",
+                        "example": "2024-01-01T12:00:00Z"
+                    },
+                    "id": {
+                        "type": "string",
+                        "example": "550e8400-e29b-41d4-a716-446655440000"
+                    },
+                    "mentions_count": {
+                        "type": "integer",
+                        "example": 15
+                    },
+                    "window_end": {
+                        "type": "string",
+                        "example": "2024-01-01T12:00:00Z"
+                    },
+                    "window_start": {
+                        "type": "string",
+                        "example": "2024-01-01T11:00:00Z"
+                    }
+                }
+            },
+            "prod-pobeda-2026_internal_controller_http_v1_dto.BrandResponse": {
+                "type": "object",
+                "properties": {
+                    "created_at": {
+                        "type": "string",
+                        "example": "2024-01-01T12:00:00Z"
+                    },
+                    "exclusions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "apple pie",
+                            "apple fruit"
+                        ]
+                    },
+                    "id": {
+                        "type": "string",
+                        "example": "550e8400-e29b-41d4-a716-446655440000"
+                    },
+                    "keywords": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "apple",
+                            "iphone",
+                            "macbook"
+                        ]
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Apple"
+                    },
+                    "risk_words": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "scandal",
+                            "leak",
+                            "bug"
+                        ]
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "example": "2024-01-01T12:00:00Z"
+                    }
+                }
+            },
+            "prod-pobeda-2026_internal_controller_http_v1_dto.CreateAlertConfigRequest": {
+                "type": "object",
+                "required": [
+                    "brand_id",
+                    "cooldown_minutes",
+                    "threshold",
+                    "window_minutes"
+                ],
+                "properties": {
+                    "aggression": {
+                        "type": "number",
+                        "maximum": 1,
+                        "minimum": 0,
+                        "example": 0.5
+                    },
+                    "brand_id": {
+                        "type": "string",
+                        "example": "550e8400-e29b-41d4-a716-446655440000"
+                    },
+                    "cooldown_minutes": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "example": 30
+                    },
+                    "sentiment_filter": {
+                        "type": "string",
+                        "example": "negative"
+                    },
+                    "threshold": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "example": 10
+                    },
+                    "window_minutes": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "example": 60
+                    }
+                }
+            },
+            "prod-pobeda-2026_internal_controller_http_v1_dto.CreateBrandRequest": {
+                "type": "object",
+                "required": [
+                    "keywords",
+                    "name"
+                ],
+                "properties": {
+                    "exclusions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "apple pie",
+                            "apple fruit"
+                        ]
+                    },
+                    "keywords": {
+                        "type": "array",
+                        "minItems": 1,
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "apple",
+                            "iphone",
+                            "macbook"
+                        ]
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Apple"
+                    },
+                    "risk_words": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "scandal",
+                            "leak",
+                            "bug"
+                        ]
+                    }
+                }
+            },
+            "prod-pobeda-2026_internal_controller_http_v1_dto.CreateSourceRequest": {
+                "type": "object",
+                "required": [
+                    "name",
+                    "type"
+                ],
+                "properties": {
+                    "config": {
+                        "type": "string",
+                        "example": "{\"chat\":\"@brand_news\"}"
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "News channel"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "web",
+                            "rss",
+                            "telegram"
+                        ],
+                        "example": "telegram"
+                    }
+                }
+            },
+            "prod-pobeda-2026_internal_controller_http_v1_dto.ErrorDetail": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "example": "NOT_FOUND"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "resource not found"
+                    }
+                }
+            },
+            "prod-pobeda-2026_internal_controller_http_v1_dto.ErrorResponse": {
+                "type": "object",
+                "properties": {
+                    "data": {},
+                    "error": {
+                        "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.ErrorDetail"
+                    }
+                }
+            },
+            "prod-pobeda-2026_internal_controller_http_v1_dto.EventResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "example": "550e8400-e29b-41d4-a716-446655440000"
+                    },
+                    "occurred_at": {
+                        "type": "string",
+                        "example": "2024-01-01T12:00:00Z"
+                    },
+                    "payload": {
+                        "type": "string",
+                        "example": "{\"brand_id\":\"550e8400-e29b-41d4-a716-446655440000\",\"count\":15}"
+                    },
+                    "type": {
+                        "type": "string",
+                        "example": "spike_alert"
+                    }
+                }
+            },
+            "prod-pobeda-2026_internal_controller_http_v1_dto.HealthResponse": {
+                "type": "object",
+                "properties": {
+                    "dependencies": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "example": {
+                            "\"redis\"": "\"ok\"}",
+                            "{\"postgres\"": "\"ok\""
+                        }
+                    },
+                    "status": {
+                        "type": "string",
+                        "example": "ok"
+                    },
+                    "uptime_seconds": {
+                        "type": "integer",
+                        "example": 3600
+                    },
+                    "version": {
+                        "type": "string",
+                        "example": "1.0.0"
+                    }
+                }
+            },
+            "prod-pobeda-2026_internal_controller_http_v1_dto.MentionMLResponse": {
+                "type": "object",
+                "properties": {
+                    "is_relevant": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "label": {
+                        "type": "string",
+                        "example": "negative"
+                    },
+                    "score": {
+                        "type": "number",
+                        "example": 0.87
+                    },
+                    "similar_ids": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "550e8400-e29b-41d4-a716-446655440000"
+                        ]
+                    }
+                }
+            },
+            "prod-pobeda-2026_internal_controller_http_v1_dto.MentionResponse": {
+                "type": "object",
+                "properties": {
+                    "author": {
+                        "type": "string",
+                        "example": "@user"
+                    },
+                    "brand_id": {
+                        "type": "string",
+                        "example": "550e8400-e29b-41d4-a716-446655440000"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "example": "2024-01-01T12:00:00Z"
+                    },
+                    "deduplicated": {
+                        "type": "boolean",
+                        "example": false
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "example": "tg-12345"
+                    },
+                    "id": {
+                        "type": "string",
+                        "example": "550e8400-e29b-41d4-a716-446655440000"
+                    },
+                    "ml": {
+                        "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.MentionMLResponse"
+                    },
+                    "published_at": {
+                        "type": "string",
+                        "example": "2024-01-01T12:00:00Z"
+                    },
+                    "source_id": {
+                        "type": "string",
+                        "example": "550e8400-e29b-41d4-a716-446655440000"
+                    },
+                    "status": {
+                        "type": "string",
+                        "example": "new"
+                    },
+                    "text": {
+                        "type": "string",
+                        "example": "Текст публикации"
+                    },
+                    "title": {
+                        "type": "string",
+                        "example": "Заголовок"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "example": "2024-01-01T12:00:00Z"
+                    },
+                    "url": {
+                        "type": "string",
+                        "example": "https://t.me/channel/123"
+                    }
+                }
+            },
+            "prod-pobeda-2026_internal_controller_http_v1_dto.PaginatedData": {
+                "type": "object",
+                "properties": {
+                    "items": {},
+                    "limit": {
+                        "type": "integer",
+                        "example": 20
+                    },
+                    "offset": {
+                        "type": "integer",
+                        "example": 0
+                    },
+                    "total": {
+                        "type": "integer",
+                        "example": 100
+                    }
+                }
+            },
+            "prod-pobeda-2026_internal_controller_http_v1_dto.PaginatedResponse": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/prod-pobeda-2026_internal_controller_http_v1_dto.PaginatedData"
+                    },
+                    "error": {
+                        "type": "string",
+                        "example": "null"
+                    }
+                }
+            },
+            "prod-pobeda-2026_internal_controller_http_v1_dto.SourceResponse": {
+                "type": "object",
+                "properties": {
+                    "config": {
+                        "type": "string",
+                        "example": "{\"chat\":\"@brand_news\"}"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "example": "2024-01-01T12:00:00Z"
+                    },
+                    "id": {
+                        "type": "string",
+                        "example": "550e8400-e29b-41d4-a716-446655440000"
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "News channel"
+                    },
+                    "status": {
+                        "type": "string",
+                        "example": "active"
+                    },
+                    "type": {
+                        "type": "string",
+                        "example": "telegram"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "example": "2024-01-01T12:00:00Z"
+                    }
+                }
+            },
+            "prod-pobeda-2026_internal_controller_http_v1_dto.SuccessResponse": {
+                "type": "object",
+                "properties": {
+                    "data": {},
+                    "error": {
+                        "type": "string",
+                        "example": "null"
+                    }
+                }
+            },
+            "prod-pobeda-2026_internal_controller_http_v1_dto.UpdateAlertConfigRequest": {
+                "type": "object",
+                "properties": {
+                    "aggression": {
+                        "type": "number",
+                        "maximum": 1,
+                        "minimum": 0,
+                        "example": 0.5
+                    },
+                    "cooldown_minutes": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "example": 30
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "sentiment_filter": {
+                        "type": "string",
+                        "example": "negative"
+                    },
+                    "threshold": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "example": 15
+                    },
+                    "window_minutes": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "example": 60
+                    }
+                }
+            },
+            "prod-pobeda-2026_internal_controller_http_v1_dto.UpdateBrandRequest": {
+                "type": "object",
+                "properties": {
+                    "exclusions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "apple pie"
+                        ]
+                    },
+                    "keywords": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "apple",
+                            "iphone"
+                        ]
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Apple Inc"
+                    },
+                    "risk_words": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "scandal"
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

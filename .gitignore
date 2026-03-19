@@ -1,0 +1,91 @@
+# ========================
+# Environment & Secrets
+# ========================
+.env
+.env.*
+!.env.example
+
+# ========================
+# IDE
+# ========================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ========================
+# OS
+# ========================
+.DS_Store
+Thumbs.db
+
+# ========================
+# Go (backend)
+# ========================
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+*.prof
+coverage.html
+coverage.xml
+bin/
+build/
+vendor/
+go.work
+go.work.sum
+tmp/
+covdata/
+
+# Swagger (regenerate with make swagger)
+backend/docs/docs.go
+backend/docs/swagger.json
+backend/docs/swagger.yaml
+
+# ========================
+# Node.js (frontend)
+# ========================
+node_modules/
+dist/
+dist-ssr/
+*.local
+*.tsbuildinfo
+coverage/
+
+# ========================
+# Python (ml)
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+htmlcov/
+.coverage
+.coverage.*
+
+# ML models & datasets (download separately)
+ml/models/
+ml/data/
+
+# ========================
+# Docker
+# ========================
+*.log
+
+# ========================
+# Misc
+# ========================
+*.tmp
+$profile
+.claude/
+CLAUDE.md

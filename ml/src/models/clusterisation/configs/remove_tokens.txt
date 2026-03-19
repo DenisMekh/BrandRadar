@@ -1,0 +1,11 @@
+Москве-Сити
+Петербурге
+Казани
+None\n\n@dataclass
+т-банк
+т банк
+t-bank
+t bank
+tbank
+тинькофф
+tinkoff
